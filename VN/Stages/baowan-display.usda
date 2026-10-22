@@ -1,0 +1,205 @@
+#usda 1.0
+(
+    defaultPrim = "World"
+    metersPerUnit = 1
+    subLayers = [
+        @./six_cargo.usda@,
+        @./baowan-p2.usd@
+    ]
+    upAxis = "Z"
+)
+
+over "World"
+{
+    over "baowan_cutoff"
+    {
+        over "gauss"
+        {
+            over "gauss"
+            {
+                custom rel proxy = [
+                    </World/GroundPlane/CollisionMesh>,
+                    </World/GroundPlane/CollisionPlane>,
+                    </Environment/env/ground>,
+                ]
+
+                over "density_field"
+                {
+                    custom asset filePath = @../../render/floor_original_contrast_v1.nurec@
+                }
+
+                over "emissive_color_field"
+                {
+                    custom asset filePath = @../../render/floor_original_contrast_v1.nurec@
+                }
+            }
+        }
+    }
+
+    over "ForkliftP"
+    {
+        over "Looks"
+        {
+            over "Carpaint_02"
+            {
+                over "Shader"
+                {
+                    bool inputs:enable_coat = 0
+                    bool inputs:enable_flakes = 0
+                }
+            }
+
+            over "Carpaint_05"
+            {
+                over "Shader"
+                {
+                    bool inputs:enable_coat = 0
+                    bool inputs:enable_flakes = 0
+                }
+            }
+
+            over "Carpaint_Metallic_04"
+            {
+                over "Shader"
+                {
+                    bool inputs:enable_coat = 0
+                    bool inputs:enable_flakes = 0
+                }
+            }
+
+            over "Carpaint_Metallic_05"
+            {
+                over "Shader"
+                {
+                    bool inputs:enable_coat = 0
+                    bool inputs:enable_flakes = 0
+                }
+            }
+
+            over "Carpaint_06"
+            {
+                over "Shader"
+                {
+                    bool inputs:enable_coat = 0
+                    bool inputs:enable_flakes = 0
+                }
+            }
+
+            over "Carpaint_07"
+            {
+                over "Shader"
+                {
+                    bool inputs:enable_coat = 0
+                    bool inputs:enable_flakes = 0
+                }
+            }
+
+            over "Carpaint_09"
+            {
+                over "Shader"
+                {
+                    bool inputs:enable_coat = 0
+                    bool inputs:enable_flakes = 0
+                }
+            }
+
+            over "Carpaint_10"
+            {
+                over "Shader"
+                {
+                    bool inputs:enable_coat = 0
+                    bool inputs:enable_flakes = 0
+                }
+            }
+
+            over "Carpaint_11"
+            {
+                over "Shader"
+                {
+                    bool inputs:enable_coat = 0
+                    bool inputs:enable_flakes = 0
+                }
+            }
+        }
+    }
+
+    over "VLA_01"
+    {
+        over "VLA_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </World/VLA_01/Looks/OmniPBR>
+        }
+    }
+
+    over "VLA_02"
+    {
+        over "VLA_02"
+        {
+            over "M_BlockPallet_A01_Body" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/VLA_01/Looks/OmniPBR>
+            }
+        }
+    }
+
+    over "VLA_03"
+    {
+        over "VLA_02"
+        {
+            over "M_BlockPallet_A01_Body" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/VLA_01/Looks/OmniPBR>
+            }
+        }
+    }
+
+    over "VLA_04"
+    {
+        over "VLA_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </World/VLA_01/Looks/OmniPBR>
+        }
+    }
+
+    over "VLA_05"
+    {
+        over "VLA_01" (
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </World/VLA_01/Looks/OmniPBR>
+        }
+    }
+
+    over "VLA_06"
+    {
+        over "VLA_02"
+        {
+            over "M_BlockPallet_A01_Body" (
+                prepend apiSchemas = ["MaterialBindingAPI"]
+            )
+            {
+                rel material:binding = </World/VLA_01/Looks/OmniPBR>
+            }
+        }
+    }
+}
+
+over "Environment"
+{
+    over "env"
+    {
+        over "top"
+        {
+            custom bool primvars:doNotCastShadows = 1
+        }
+    }
+}
